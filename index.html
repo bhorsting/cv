@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bas Horsting</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <link href="css/default.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            cursor: crosshair;
+            font-family: 'Bitter', serif;
+        }
+
+        #titleDiv {
+            font-size: 3vw;
+            color: pink;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            mix-blend-mode: overlay;
+            white-space: nowrap;
+            text-decoration: underline;
+            user-select: none;
+        }
+
+        .flex-container {
+            mix-blend-mode: overlay;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-align-content: stretch;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch;
+            -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            z-index: 10000;
+        }
+
+        .flex-item {
+            cursor: pointer;
+            user-select: none;
+            color: lightblue;
+            opacity: 0.7;
+            font-size: 1.5em;
+            -webkit-order: 0;
+            -ms-flex-order: 0;
+            order: 0;
+            -webkit-flex: 0 1 auto;
+            -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+            -webkit-align-self: auto;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+            text-decoration: underline;
+        }
+
+        #video {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        #cv {
+            display: none;
+            padding: 70px;
+            color: white;
+            column-count: 3;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right:0;
+            bottom:0;
+            font-size: 13px;
+            overflow-x: scroll;
+        }
+
+        #cv h1, p {
+
+        }
+
+	.hidden {
+		display:none;
+	}
+
+
+
+    </style>
+</head>
+
+<body>
+
+<video id="video" playsinline autoplay="autoplay" muted loop controls="no" width="256" height="256" src="video2.mp4"></video>
+
+<div id="container"></div>
+<div id="info"></div>
+<div id="cameraInfo" style="position:fixed; left:3%; bottom:2%; font-family:arial; color:rgb(255,255,255);"></div>
+
+<div class="flex-container" id="links">
+    <div class="flex-item" onclick="goHome()"><u>home</u></div>
+    <div class="flex-item" onclick="goAbout()">about</div>
+    <div class="flex-item" onclick="goWork()">work</div>
+    <div class="flex-item" onclick="goContact()">contact</div>
+</div>
+
+<svg id="handwritingCanvas">
+    <path id="path" d=""></path>
+</svg>
+
+<div class="cv" id="cv">
+    <h1>Bas Horsting CV (2021)</h1>
+    <h4>My name is Bas Horsting, I am a passionate, creative Frontend developer.</h4>
+
+    <p>After seven years of experience in the Internet and advertising industry in Spain, I returned to the Netherlands.
+        After some work for Info.nl and my old Spanish employer, I started working at Greetz, first as a Flash lead
+        developer, then Flex, later as an HTML5 / Javascript lead developer. My current position there is more of an R&D
+        lead, and my business card says Lead Personalization Developer:)</p>
+
+    <p>At Greetz, I am responsible for enabling the personalization of millions of products per year, on mobile, tablet,
+        in apps, and on the desktop. This is done through a SVG-based flow, which is transformed using XSLT and
+        ultimately rendered as PDF. This entire process has been defined by me and has now been successfully applied for
+        years. Many millions of personalized products are made every year using this technology. All editors are built
+        in HTML5. All this has been done for years in an Agile / SCRUM environment in collaboration with our nearshore
+        partners in Armenia and Ukraine.
+        My name is Bas Horsting, I am a passionate, creative Frontend developer.</p>
+
+
+    <p>At Greetz I built a full-featured rich text SVG editor, developed a super-fast 3D preview method that can run
+        both on the backend (on a GPU server and, using the same technology, in the frontend) and on the frontend, built
+        a photo collage engine, and much more.
+    </p>
+    <p>Unfortunately, the Greetz IT department has gone through troubled times lately, which now means that I am looking
+        for something else.
+    </p>
+    <p>I am at home in many markets, have an eye for graphic, GUI and programmatic design, know a lot about video, audio
+        and 3D, how to create them, and how to implement them in a browser or in Node.JS.
+    </p>
+    <p>I am an inventor, whereas others are proud of how many tools they master, I am more proud of the tools that I
+        have built myself. I will always prefer vanilla code over frameworks, and have performance and UX at the top of
+        my priority list.
+    </p>
+    <p>I have a lot of affinity with hardware and I spend a lot of the day at the soldering iron. Together with my wife
+        we ​​repair and sell vintage audio equipment (record players, cassette decks ...) and also develop and sell my
+        own products (3D printed parts for record players, an ultra-low-latency audio streamer for record players ...)
+    </p>
+
+    <p>I have worked for customers such as De Lotto, SNS Bank, BMW, Philips and Siemens.
+    </p>
+    <p>I speak fluent Spanish, English and Dutch, good German and understandable French and Catalan.
+    </p>
+
+    <h2>Work experience </h2>
+    <h3>Lead personalization developer </h3>
+    <h4>1/2017 - now Greetz, Amsterdam </h4>
+    Responsible for R&D for the Editor, Services and Fulfillment team
+    Development of new customizable products and personalization techniques including the only interactive real time SVG
+    rich text editor in the market, server-based WebGL preview rendering that also runs on the frontend, etc
+    Responsible for translating user content into millions of WYSIWYG printed products per year
+    <h3>Lead frontend developer, editor team      </h3>
+    <h4>2/2011 - 1/2017 Greetz, Amsterdam     </h4>
+    Development of content editors, first in Flex, later in HTML5
+    Responsible for translating user content into millions of WYSIWYG printed products per year
+    <h3>Director, Internet & Multimedia </h3>
+    <h4>2/2009 - 2/2011 Publis NCM, San Sebastián, Spain, operating from Amsterdam     </h4>
+    Back at the old site, now operating from Amsterdam. Managing and executing various projects related to advertising
+    campaigns. Some examples:
+    Cross-platform microsite BMW 1 second generation
+    3D texturing, lighting & rendering for Philips Senseo
+    Work for AW Bruna and Gaastra
+    Internal microsite for Siemens
+
+
+    <h3>Flash / Flex developer      </h3>
+    <h4>2/2008 - 2/2009 greetz.nl, Hoofddorp </h4>
+    Development of a new version of the flash and flex based portion of the site. Also development of a new,
+    proprietary, SVG and PDF based printing system. This system has been online since spring 2009 and by January 2010
+    already 1 million cards had been designed and sold. Now available at http://www.greetz.nl
+    <h3>Flash developer      </h3>
+    <h4>10/2007 - 2/2008 info.nl, Amsterdam         </h4>
+    Responsible for flash development within the company, clients such as De Lotto, SNS Bank. Interface widgets for SNS
+    bank site.
+   <h3> Director, R&D    </h3>
+    <h4>2/2006 - 8/2007 Publis NCM, San Sebastián, Gipuzkoa  </h4>
+    Head of research & development at Basque advertising company. Development of an online desktop tracking / file
+    sharing / audiovisual communication system for our clients
+
+
+   <h3> Director, Multimedia and Internet      </h3>
+   <h4>2/2002 - 2/2006 Publis NCM, San Sebastián, Gipuzkoa     </h4>
+    Head of Multimedia and Internet department of Basque advertising company. In-house production of commercials,
+    interactive presentations, websites. Development of internal and commercial software.
+
+
+   <h3> Web and multimedia designer, programmer                    </h3>
+   <h4> 3/2000 - 1/2002 Interweb Research, Barcelona        </h4>
+    Multimedia and Web: 3D animation, video production, programming in HTML, server side and Flash. At the beginning of
+    2002 the company was closed and I was (the only one) taken over by Publis NCM, San Sebastián
+    <h3>Interface designer              </h3>
+    <h4>10/1999 - 2/2000 Crater Software, Enefecto Group, Barcelona     </h4>
+    Redesign of the graphical interface of 2D animation program, CTP (Crater Software is now located in Montreal,
+    Canada, job was terminated due to this move).
+   <h3> Technical support engineer, Xerox          </h3>
+   <h4> 12/1998 - 9/1999 Sykes, Amsterdam     </h4>
+    Telephone technical support for the entire printer, fax and copy line of Xerox, under both Windows and Macintosh
+    operating systems, to end users.
+
+    <h3>Visual Artist: Installations, video art, animation, 3D  </h3>
+
+    Various exhibitions from 1996-2000 including in the Westergasfabriek, kunstRAI. Collaborations with different
+    artists.
+
+    Starting stipend obtained in 1998.
+    <h2>Education                 </h2>
+    6/1996 University of the Arts, Arnhem, Gelderland
+    HBO
+    Education liberal arts, specialization in video, 3D and installation work
+    6/1992 Liemers college, Zevenaar, Gelderland
+    Secondary school or comparable education
+    VWO education: Dutch, English, French, Mathematics-B, Physics, Chemistry, Drawing.
+    Mainskills
+
+
+    Agile / SCRUM
+    Javascript (All flavors)
+    SVG
+    Canvas
+    3D modeling / shading / animation
+    3D printing
+    WebGL / OpenGL
+    Computer Vision (Google Vision API etc)
+    WebAudio / WebMIDI
+    Streaming video / audio
+    PostScript / PDF creation, conversion and programming
+    TypeScript
+    Angular
+    Stencil
+    Node.js / npm / yarn
+    Puppeteer
+    Docker
+    GIT / github
+    Grunt
+    Less
+    Linters
+    TDD
+    Continuous Integration
+    Jasmine
+    Karma
+    NewRelic
+    Kibana
+    jQuery
+    XSLT / XML
+    ActionScript
+    Arduino / Raspberry PI
+    Assembly
+    C / C ++ / C #
+    Cinema 4D
+    Ableton, Cubase, Logic
+    Flash, Flex, Flash Media Server
+    MySQL, MariaDB
+    PHP
+    Photoshop
+    Illustrator
+    After Effects
+
+
+    Language skills
+
+
+    Dutch: Excellent
+    Spanish: Excellent
+    English: Excellent
+    German: Good
+    French: Reasonable
+    Catalan: Reasonable
+
+
+</div>
+
+<div id="loading-indicator"></div>
+
+<div id="output"></div>
+
+
+<script src="js/three.min.js"></script>
+<script src="js/FirstPersonCameraControls.js"></script>
+<script src="js/MobileJoystickControls.js"></script>
+<script src="js/stats.min.js"></script>
+<script src="js/PathTracingCommon.js"></script>
+<script src="js/InitCommon.js"></script>
+<script src="js/BasHorsting.js"></script>
+<script src="js/BasHorstingUX.js"></script>
+<script src="js/handwriting.js"></script>
+</body>
+</html>
