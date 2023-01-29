@@ -3,7 +3,17 @@ function setTitles(arrayOfTitles) {
     textRotate = arrayOfTitles.length-1;
 }
 
+function showContainer(val){
+    if(val){
+        container.style.visibility = 'visible';
+        document.body.scrollTo(0,0);
+    } else {
+        container.style.visibility = 'hidden';
+    }
+}
+
 function goAbout() {
+    showContainer(false);
     stopAnimation = true;
     setTitles(["About", "Bas Horsting"]);
     targetY = -2.1;
@@ -14,6 +24,7 @@ function goAbout() {
 }
 
 function goWork() {
+    showContainer(true);
     stopAnimation = false;
     setTitles(["Work by", "Bas Horsting"]);
     targetY = -2.3;
@@ -24,6 +35,7 @@ function goWork() {
 }
 
 function goContact() {
+    showContainer(true);
     stopAnimation = false;
     setTitles(["Contact", "Bas Horsting", "bhorsting at gmail dot com"]);
     targetY = -1.5;
@@ -34,6 +46,7 @@ function goContact() {
 }
 
 function goHome() {
+    showContainer(true);
     stopAnimation = false;
     setTitles(["Welcome to", "bas-horsting.nl", "Bas Horsting"]);
     targetY = -2.2;

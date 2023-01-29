@@ -86,7 +86,6 @@ function initPathTracingShaders()
 
 let campos = 1979;
 
-
 function createPathTracingMaterial()
 {
 
