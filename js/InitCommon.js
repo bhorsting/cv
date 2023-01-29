@@ -75,7 +75,7 @@ cameraInfoElement.style.cursor = "default";
 cameraInfoElement.style.userSelect = "none";
 cameraInfoElement.style.MozUserSelect = "none";
 
-let mouseControl = true;
+let mouseControl = false;
 let pointerlockChange;
 let fileLoader = new THREE.FileLoader();
 
@@ -191,7 +191,6 @@ function init()
 
 	if (mouseControl)
 	{
-
 		window.addEventListener('wheel', onMouseWheel, false);
 
 

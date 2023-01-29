@@ -1,5 +1,4 @@
 let currentText = 'Bas Horsting';
-
 const ANIMATION_SPEED = 10;
 const BIAS = 0.8;
 const SELECTED_STYLE = 44;
@@ -245,16 +244,18 @@ let r; let e; let t; const a = (r) => (e) => {
         };
     })(K(c) + 1, l); let d = 0; const p = [Y([0, 0, 1])]; const w = [Y([f, s, 1])]; var
         g = (r, e) => {
-            const t = ANIMATION_SPEED;
-            for (let i = 0; i < t; i++) {
-                const a = e[K(e) - 1]; var
-                    [l, o, r] = L(a, r);
-                if ((d += 1) > 40 * n || o > 0.5) return void S(w);
-                e.push(l), xi_c = [w[K(w) - 1][0] + v * l[0], w[K(w) - 1][1] - v * l[1], l[2]], xi_c = Y(xi_c), w.push(xi_c);
+            if (!stopAnimation) {
+                const t = ANIMATION_SPEED;
+                for (let i = 0; i < t; i++) {
+                    const a = e[K(e) - 1]; var
+                        [l, o, r] = L(a, r);
+                    if ((d += 1) > 40 * n || o > 0.5) return void S(w);
+                    e.push(l), xi_c = [w[K(w) - 1][0] + v * l[0], w[K(w) - 1][1] - v * l[1], l[2]], xi_c = Y(xi_c), w.push(xi_c);
+                }
+                e, tr = w, S(w), rr = window.requestAnimationFrame(() => {
+                    g(r, e);
+                });
             }
-            e, tr = w, S(w), rr = window.requestAnimationFrame(() => {
-                g(r, e);
-            });
         };
     g(h, p);
 }; const q = (r, e, t) => {
@@ -440,13 +441,16 @@ const handwritingCanvas = elementById('handwritingCanvas');
 let ur; let fr; var sr = (r) => r.toFixed(2); const
     hr = (r) => r.toFixed(3);
 ur = 'd.bin', fr = (() => {
+    console.log('HOI')
     let r = 0; const e = [' ', '.', '..', '..', '...']; const
         loadingIndicator = elementById('loading-indicator');
     return setInterval(() => {
+        console.log( `Loading ${e[r % K(e)]}`)
         loadingIndicator.innerHTML = `Loading ${e[r % K(e)]}`, r += 1;
     }, 200);
 })(), fetch(ur).then((r) => r.arrayBuffer()).then((r) => {
     $ = ((r) => {
+        elementById('loading-indicator').innerHTML = '';
         let e = 0; const t = {}; const dataView = new DataView(r); var
             l = (r) => {
                 do {

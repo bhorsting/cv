@@ -4,6 +4,7 @@ function setTitles(arrayOfTitles) {
 }
 
 function goAbout() {
+    stopAnimation = true;
     setTitles(["About", "Bas Horsting"]);
     targetY = -2.1;
     campos = 3000;
@@ -13,6 +14,7 @@ function goAbout() {
 }
 
 function goWork() {
+    stopAnimation = false;
     setTitles(["Work by", "Bas Horsting"]);
     targetY = -2.3;
     campos = 0;
@@ -22,7 +24,8 @@ function goWork() {
 }
 
 function goContact() {
-    setTitles(["Contact", "Bas Horsting", "bhorsting@gmail.com"]);
+    stopAnimation = false;
+    setTitles(["Contact", "Bas Horsting", "bhorsting at gmail dot com"]);
     targetY = -1.5;
     campos = 1000;
     colorToRotate = 270;
@@ -31,6 +34,7 @@ function goContact() {
 }
 
 function goHome() {
+    stopAnimation = false;
     setTitles(["Welcome to", "bas-horsting.nl", "Bas Horsting"]);
     targetY = -2.2;
     campos = 1979;

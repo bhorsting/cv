@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/eink" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/eink_old" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/einkluciano" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pacman/pacman-js" vcs="Git" />
   </component>
 </project>

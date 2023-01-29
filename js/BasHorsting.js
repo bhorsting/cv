@@ -6,6 +6,7 @@ const sunDirection = new THREE.Vector3();
 const waterLevel = 0.0;
 let cameraUnderWater = false;
 let tex2;
+
 // called automatically from within initTHREEjs() function
 function initSceneData()
 {
@@ -43,10 +44,18 @@ const cv = document.getElementById('cv');
 
 function setUpText(amount) {
         let textShadow = [];
+        let h4Shadow = [];
         for (let i=0; i<amount; i++) {
                 textShadow.push(`${i*2}px ${i*2}px 0px rgba(255,0,155,${0.85-((i/amount)*0.85)})`);
+                h4Shadow.push(`${i*2}px ${i*2}px 0px rgba(0,155,155,${0.85-((i/amount)*0.85)})`);
         }
-        cv.style.textShadow = textShadow.join(',');
+        //cv.style.textShadow = textShadow.join(',');
+        document.head.insertAdjacentHTML("beforeend", `<style>
+        .cv{text-shadow:${textShadow}}
+        .cv h1{text-shadow:${h4Shadow}}
+        .cv h4{text-shadow:${h4Shadow}}
+        </style>`)
+
 }
 
 // called automatically from within initTHREEjs() function
