@@ -41,6 +41,7 @@ function setUpTexture(path) {
         return texture;
 }
 const cv = document.getElementById('cv');
+const work = document.getElementById('work');
 
 function setUpText(amount) {
         let textShadow = [];
@@ -120,7 +121,7 @@ let textRotate = 0;
 let colorRotate = 0;
 let colorToRotate = 0;
 
-let titles = ["Welcome to", "bas-horsting.nl", "Bas Horsting"];
+let titles = ["Welcome to", "bas-horsting dot com", "Bas Horsting", "Frontend", "Canvas", "SVG", "WebGL"];
 // called automatically from within the animate() function
 function updateVariablesAndUniforms()
 {

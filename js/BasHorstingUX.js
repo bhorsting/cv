@@ -3,6 +3,49 @@ function setTitles(arrayOfTitles) {
     textRotate = arrayOfTitles.length-1;
 }
 
+const work_left = document.getElementById('work_left');
+const work_right = document.getElementById('work_right');
+
+const expl = ['E-Ink picture frame: Black and white. Charged by solar cell.',
+    'Baby projector inside old Philips loudspeaker.',
+    '3D preview rendering at Greetz.',
+    'Custom MIDI patcher running using Chrome and WebMIDI.',
+    'Purr Binta: A project and website collaborating with West African bag tailors.'];
+
+const explDiv = document.getElementById('expl');
+const workvideo = document.getElementById('workvideo');
+let videoIndex = 1;
+function showVideo(index){
+    if (index < 2) {
+        index = 1;
+        work_left.style.opacity = 0.5;
+    } else {
+        work_left.style.opacity = 1;
+    }
+    if (index > expl.length) {
+        index = expl.length - 1;
+        work_right.style.opacity = 0.5;
+    }  else {
+        work_right.style.opacity = 1;
+    }
+    videoIndex = index;
+    explDiv.innerText = expl[index-1];
+    workvideo.src = `assets/scherm${index+1}.mp4`;
+    workvideo.play();
+}
+
+showVideo(1);
+
+function showActiveLink(name){
+    for (let link of Array.from(linksDiv.children)) {
+        if (link.innerText === name) {
+            link.classList.add('selected');
+        } else {
+            link.classList.remove('selected');
+        }
+    }
+}
+
 function showContainer(val){
     if(val){
         container.style.visibility = 'visible';
@@ -13,6 +56,7 @@ function showContainer(val){
 }
 
 function goAbout() {
+    showActiveLink('about');
     showContainer(false);
     stopAnimation = true;
     setTitles(["About", "Bas Horsting"]);
@@ -21,10 +65,12 @@ function goAbout() {
     colorToRotate = 60;
     pathTracingUniforms.t_PerlinNoise = { type: "t", value: PerlinNoiseTexture };
     showCV();
+    hideWork();
 }
 
 function goWork() {
-    showContainer(true);
+    showActiveLink('work');
+    showContainer(false);
     stopAnimation = false;
     setTitles(["Work by", "Bas Horsting"]);
     targetY = -2.3;
@@ -32,9 +78,11 @@ function goWork() {
     colorToRotate = 200;
     pathTracingUniforms.t_PerlinNoise = { type: "t", value: tex2 };
     hideCV();
+    showWork();
 }
 
 function goContact() {
+    showActiveLink('contact');
     showContainer(true);
     stopAnimation = false;
     setTitles(["Contact", "Bas Horsting", "bhorsting at gmail dot com"]);
@@ -43,19 +91,35 @@ function goContact() {
     colorToRotate = 270;
     pathTracingUniforms.t_PerlinNoise = { type: "t", value: PerlinNoiseTexture };
     hideCV();
+    hideWork();
 }
 
 function goHome() {
+    showActiveLink('home');
     showContainer(true);
     stopAnimation = false;
-    setTitles(["Welcome to", "bas-horsting.nl", "Bas Horsting"]);
+    setTitles(["Welcome to", "bas-horsting dot com", "Bas Horsting"]);
     targetY = -2.2;
     campos = 1979;
     colorToRotate = 0;
     pathTracingUniforms.t_PerlinNoise = { type: "t", value: PerlinNoiseTexture };
     hideCV();
+    hideWork();
 }
 
+goHome();
+
+function showWork() {
+    work.style.display = 'block';
+    handwritingCanvas.style.display = 'none';
+    stopAnimation = true;
+}
+
+function hideWork() {
+    work.style.display = 'none';
+    handwritingCanvas.style.display = 'block';
+    stopAnimation = false;
+}
 
 function showCV() {
     cv.style.display = 'block';

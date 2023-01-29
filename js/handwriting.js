@@ -283,7 +283,10 @@ let r; let e; let t; const a = (r) => (e) => {
     }
     const k = c.join(' '); const
         F = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    F.setAttribute('d', k), F.style.stroke = 'white', F.style.fill = 'white', handwritingCanvas.appendChild(F);
+    if (k.indexOf('NaN') === -1){
+        F.setAttribute('d', k), F.style.stroke = 'white', F.style.fill = 'white';
+    }
+    handwritingCanvas.appendChild(F);
 }; var B = (r) => {
     const e = [];
     for (let o = 0; o < K(r); o++) {
