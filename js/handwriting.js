@@ -216,48 +216,53 @@ let r; let e; let t; const a = (r) => (e) => {
     const [t, a] = F(r, e);
     return [U(t), a, e];
 }; const startHandWriting = () => {
-    for (rr != null && window.cancelAnimationFrame(rr); handwritingCanvas.lastChild;) handwritingCanvas.removeChild(handwritingCanvas.lastChild);
-    if (r = 0, e = !1, SELECTED_STYLE == '-') {
-        const a = K($.g) / 64;
-        var l = W(a * R());
-    } else l = SELECTED_STYLE;
-    l = 44;
-    const o = currentText;
-    Z = o, c = Z.trim().replace(/\s+/g, ' ');
-    const n = K(c); let
-        v = Math.min(105 / n, 11);
-    v *= handwritingCanvas.width.baseVal.value / 1240;
-    const i = 8.2 * n * v; const f = Math.max((handwritingCanvas.width.baseVal.value - i) / 2, 10); const
-        s = handwritingCanvas.height.baseVal.value / 2 + 20;
-    t = v, c = ((r) => {
-        let e = r.split('').map((r) => (r in H ? H[r] : 1));
-        return e = [2, ...e, 3], Y(e);
-    })(c), er = A(c);
-    const h = ((r, e) => {
-        const t = [10, r]; const
-            a = Y(t[0] * t[1]);
-        for (let r = 0; r < t[0]; r++) for (let e = 0; e < t[1]; e++) a[r * t[1] + e] = e - 0.5;
-        const l = $.g; let o = O(l, 64 * e, 64 * (e + 1)); const n = $.k; const v = $.R; const
-            i = (o = u(m(o, n), v), Y(10));
-        return {
-            a: $.d, b: $.o, c: $.e, d: $.m, e: $.x, f: $.a, w: $.T, k: i, u: a, z: o,
-        };
-    })(K(c) + 1, l); let d = 0; const p = [Y([0, 0, 1])]; const w = [Y([f, s, 1])]; var
-        g = (r, e) => {
-            if (!stopAnimation) {
-                const t = ANIMATION_SPEED;
-                for (let i = 0; i < t; i++) {
-                    const a = e[K(e) - 1]; var
-                        [l, o, r] = L(a, r);
-                    if ((d += 1) > 40 * n || o > 0.5) return void S(w);
-                    e.push(l), xi_c = [w[K(w) - 1][0] + v * l[0], w[K(w) - 1][1] - v * l[1], l[2]], xi_c = Y(xi_c), w.push(xi_c);
+    try {
+        for (rr != null && window.cancelAnimationFrame(rr); handwritingCanvas.lastChild;) handwritingCanvas.removeChild(handwritingCanvas.lastChild);
+        if (r = 0, e = !1, SELECTED_STYLE == '-') {
+            const a = K($.g) / 64;
+            var l = W(a * R());
+        } else l = SELECTED_STYLE;
+        l = 44;
+        const o = currentText;
+        Z = o, c = Z.trim().replace(/\s+/g, ' ');
+        const n = K(c); let
+            v = Math.min(105 / n, 11);
+        v *= handwritingCanvas.width.baseVal.value / 1240;
+        const i = 8.2 * n * v; const f = Math.max((handwritingCanvas.width.baseVal.value - i) / 2, 10); const
+            s = handwritingCanvas.height.baseVal.value / 2 + 20;
+        t = v, c = ((r) => {
+            let e = r.split('').map((r) => (r in H ? H[r] : 1));
+            return e = [2, ...e, 3], Y(e);
+        })(c), er = A(c);
+        const h = ((r, e) => {
+            const t = [10, r]; const
+                a = Y(t[0] * t[1]);
+            for (let r = 0; r < t[0]; r++) for (let e = 0; e < t[1]; e++) a[r * t[1] + e] = e - 0.5;
+            const l = $.g; let o = O(l, 64 * e, 64 * (e + 1)); const n = $.k; const v = $.R; const
+                i = (o = u(m(o, n), v), Y(10));
+            return {
+                a: $.d, b: $.o, c: $.e, d: $.m, e: $.x, f: $.a, w: $.T, k: i, u: a, z: o,
+            };
+        })(K(c) + 1, l); let d = 0; const p = [Y([0, 0, 1])]; const w = [Y([f, s, 1])]; var
+            g = (r, e) => {
+                if (!stopAnimation) {
+                    const t = ANIMATION_SPEED;
+                    for (let i = 0; i < t; i++) {
+                        const a = e[K(e) - 1]; var
+                            [l, o, r] = L(a, r);
+                        if ((d += 1) > 40 * n || o > 0.5) return void S(w);
+                        e.push(l), xi_c = [w[K(w) - 1][0] + v * l[0], w[K(w) - 1][1] - v * l[1], l[2]], xi_c = Y(xi_c), w.push(xi_c);
+                    }
+                    e, tr = w, S(w), rr = window.requestAnimationFrame(() => {
+                        g(r, e);
+                    });
                 }
-                e, tr = w, S(w), rr = window.requestAnimationFrame(() => {
-                    g(r, e);
-                });
-            }
-        };
-    g(h, p);
+            };
+        g(h, p);
+    } catch (e) {
+
+    }
+
 }; const q = (r, e, t) => {
     const a = []; const l = []; const
         o = B(r);
@@ -457,26 +462,31 @@ ur = 'd.bin', fr = (() => {
         let e = 0; const t = {}; const dataView = new DataView(r); var
             l = (r) => {
                 do {
-                    const o = dataView.getUint8(e);
-                    e += 1;
-                    let n = new Uint8Array(o);
-                    for (let r = 0; r < o; r++) n[r] = dataView.getUint8(e), e += 1;
-                    n = D(n);
-                    const v = dataView.getUint8(e);
-                    e += 1;
-                    const i = dataView.getUint32(e, !0);
-                    e += 4;
-                    let u = new Float32Array(i);
-                    for (let r = 0; r < i; r++) u[r] = dataView.getFloat32(e, !0), e += 4;
-                    if (v) {
-                        var f = new Uint8Array(i);
-                        for (let r = 0; r < i; r++) f[r] = dataView.getUint16(e, !0), e += 1;
+                    try {
+                        const o = dataView.getUint8(e);
+                        e += 1;
+                        let n = new Uint8Array(o);
+                        for (let r = 0; r < o; r++) n[r] = dataView.getUint8(e), e += 1;
+                        n = D(n);
+                        const v = dataView.getUint8(e);
+                        e += 1;
+                        const i = dataView.getUint32(e, !0);
+                        e += 4;
+                        let u = new Float32Array(i);
+                        for (let r = 0; r < i; r++) u[r] = dataView.getFloat32(e, !0), e += 4;
+                        if (v) {
+                            var f = new Uint8Array(i);
+                            for (let r = 0; r < i; r++) f[r] = dataView.getUint16(e, !0), e += 1;
+                        }
+                        const s = dataView.getUint8(e);
+                        e += 1;
+                        const h = new Uint16Array(s);
+                        for (let r = 0; r < s; r++) h[r] = dataView.getUint16(e, !0), e += 2;
+                        ['y', 'w', 'r', 'l'].includes(n) ? u = V(u, f, h) : v && (u = _(u, f, h)), t[n] = u;
+                    } catch (e) {
+
                     }
-                    const s = dataView.getUint8(e);
-                    e += 1;
-                    const h = new Uint16Array(s);
-                    for (let r = 0; r < s; r++) h[r] = dataView.getUint16(e, !0), e += 2;
-                    ['y', 'w', 'r', 'l'].includes(n) ? u = V(u, f, h) : v && (u = _(u, f, h)), t[n] = u;
+
                 } while (performance.now() - r < 16 && e < dataView.byteLength);
                 e < dataView.byteLength ? window.requestAnimationFrame(l) : void(null);
             };
